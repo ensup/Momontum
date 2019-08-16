@@ -1,0 +1,40 @@
+const API_KEY = "fabb4883166a4d9f231e60b0649af99b";
+
+const COORDS = "coords";
+
+function saveCoords(coordsObj) {
+  localStorage.setItem(COORDS, JSON.stringify(coordsObj));
+}
+
+function handleGeoSuccess(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  const coordsObj = {
+    latitude,
+    longitude
+  };
+  saveCoords(coordsObj);
+}
+
+function handleGeoError() {
+  console.log("Can't access geo location");
+}
+
+function askForCoords() {
+  navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError);
+}
+
+function loadCoords() {
+  const loadedCoords = localStorage.getItem(COORDS);
+  if (loadedCoords === null) {
+    askForCoords();
+  } else {
+    //get weather
+  }
+}
+
+function init() {
+  loadCoords();
+}
+
+init();
