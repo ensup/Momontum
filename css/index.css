@@ -48,14 +48,15 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 200px;
+  margin-top: 170px;
 }
 
 .clock {
   font-size: 150px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
   opacity: 0.9;
   color: white;
+  font-weight: 490;
 }
 
 .form input,
@@ -67,6 +68,10 @@ body {
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+.form input {
+  font-size: 50px;
 }
 
 input:focus {
